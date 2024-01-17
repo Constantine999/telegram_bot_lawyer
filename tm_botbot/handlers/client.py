@@ -88,7 +88,6 @@ async def command_consultation(message: types.message):
         user_id = str(message.from_user.id)
         chat_url = None
 
-        # if user_id not in 1:  # ADMINS_ID тупо заглушка надо убрать:
         if sql_read_data_groups_activity_db(ex1.connect, user_id):
             chat_url = sql_read_data_groups_activity_db(ex1.connect, user_id)[-3]
         else:
@@ -107,7 +106,7 @@ async def command_consultation(message: types.message):
         )
         content = None
 
-        # Получение текстового сообщения
+        # Получение текстового сообщения от пользователя
         if message.content_type == "text":
             await bot.send_message(
                 chat_id,
@@ -116,7 +115,7 @@ async def command_consultation(message: types.message):
             )
             content = f"Отправил текст - {message.text}"
 
-        # Получение звукового сообщения
+        # Получение звукового сообщения от пользователя
         if message.content_type == "voice":
             await bot.send_message(
                 chat_id,
@@ -129,7 +128,7 @@ async def command_consultation(message: types.message):
             )
             content = "Отправлено звуковое сообщение"
 
-        # Получение картинки
+        # Получение картинки от пользователя
         if message.content_type == "photo":
             await bot.send_message(
                 chat_id,
@@ -143,7 +142,7 @@ async def command_consultation(message: types.message):
             )
             content = "Отправлено фото"
 
-        # Получение документа
+        # Получение документа от пользователя
         if message.content_type == "document":
             await bot.send_message(
                 chat_id,
