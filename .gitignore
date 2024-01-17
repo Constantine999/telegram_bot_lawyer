@@ -4,7 +4,5 @@ venv
 .vsco
 .flake8
 .env
-config.py
 BotBotLawyers_Bot.session
 BotBotLawyers_Bot.session-journal
-README.md
